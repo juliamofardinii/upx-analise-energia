@@ -7,6 +7,9 @@ caminho_csv = 'dados/CONSUMO MENSAL DE ENERGIA ELÉTRICA POR CLASSE.xlsx - CONSU
 # Lê o CSV pulando a linha de cabeçalho inicial e usando as duas primeiras linhas como cabeçalho multi-index
 df = pd.read_csv(caminho_csv, sep=',', header=[0, 1], encoding='utf-8', skiprows=4)
 
+# Remove a última linha do DataFrame, pois é uma linha de nota e não representa uma UF
+df = df.iloc[:-1]
+
 # Adiciona a coluna 'UF' a partir do índice
 df['UF'] = df.iloc[:, 0]  # A primeira coluna é o nome da UF
 df = df.drop(columns=df.columns[0])  # Remove a coluna duplicada que foi usada para UF

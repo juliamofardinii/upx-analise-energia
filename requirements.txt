@@ -1,0 +1,2 @@
+pandas
+matplotlib  # Caso queira fazer gráficos no futuro
